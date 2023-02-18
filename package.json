@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "tsc --noEmit && vite build",
-    "build:watch": "__DEV__=true vite build --watch",
+    "build:watch": "set __DEV__=true && vite build --watch",
     "build:hmr": "rollup --config utils/reload/rollup.config.ts",
     "wss": "node utils/reload/initReloadServer.js",
     "dev": "npm run build:hmr && (run-p wss build:watch)",
@@ -17,6 +17,10 @@
   },
   "type": "module",
   "dependencies": {
+    "@chakra-ui/react": "^2.4.9",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "framer-motion": "^8.5.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
