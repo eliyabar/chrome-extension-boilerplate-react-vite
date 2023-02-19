@@ -1,25 +1,33 @@
 import React from 'react';
-import logo from '@assets/img/logo.svg';
-import '@pages/popup/Popup.css';
+// import '@pages/popup/Popup.css';
+import { Box, Button, Center } from '@chakra-ui/react';
 
 const Popup = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit2 <code>src/pages/popup/Popup.tsx</code> and save to reload!!.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React!
-        </a>
-      </header>
-    </div>
+    <Center h="150px" w="100%" bg="#282c34">
+      <Button
+        colorScheme="blue"
+        w="80px"
+        h="40px"
+        onClick={async () => {
+          console.log('sending');
+          chrome.tabs.query(
+            {
+              active: true,
+              currentWindow: true,
+            },
+            function (tabs) {
+              const tabURL = tabs[0].url;
+              chrome.tabs.sendMessage(tabs[0].id, {
+                action: 'capture',
+              });
+            }
+          );
+        }}
+      >
+        Capture
+      </Button>
+    </Center>
   );
 };
 
