@@ -1,6 +1,6 @@
 import React from 'react';
 // import '@pages/popup/Popup.css';
-import { Box, Button, Center } from '@chakra-ui/react';
+import { Button, Center } from '@chakra-ui/react';
 
 const Popup = () => {
   return (
@@ -17,7 +17,6 @@ const Popup = () => {
               currentWindow: true,
             },
             function (tabs) {
-              const tabURL = tabs[0].url;
               chrome.tabs.sendMessage(tabs[0].id, {
                 action: 'capture',
               });
