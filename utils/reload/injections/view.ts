@@ -1,4 +1,4 @@
-import initReloadClient from "../initReloadClient";
+import initReloadClient from '../initReloadClient';
 
 export default function addHmrIntoView(watchPath: string) {
   let pendingReload = false;
@@ -19,11 +19,12 @@ export default function addHmrIntoView(watchPath: string) {
   function reload(): void {
     pendingReload = false;
     window.location.reload();
+    chrome.runtime.reload();
   }
 
   // reload when tab is visible
   function reloadWhenTabIsVisible(): void {
     !document.hidden && pendingReload && reload();
   }
-  document.addEventListener("visibilitychange", reloadWhenTabIsVisible);
+  document.addEventListener('visibilitychange', reloadWhenTabIsVisible);
 }

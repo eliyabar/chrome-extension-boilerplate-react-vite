@@ -11,7 +11,6 @@ import {
   DEFAULT_COLOR_ID,
   DrawingBoardTools,
 } from './DrawingBoardTools';
-import { pencilCursor } from './Icons';
 
 interface DrawingBoardProps {
   width: number;
@@ -298,7 +297,7 @@ export const DrawingBoard: React.FC<DrawingBoardProps> = ({
       uniformScaling: false,
       selection: false,
       isDrawingMode: isDrawing,
-      freeDrawingCursor: `url(${pencilCursor}) 0 15, auto`,
+      freeDrawingCursor: `url("data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 20h4L18.5 9.5a2.829 2.829 0 00-4-4L4 16v4z' fill='%23fff' stroke='%2385008F' strokeWidth='1.5' strokeLinecap='round' strokeLinejoin='round'/%3E%3Cpath d='M13.5 6.5l4 4' stroke='%2385008F' strokeWidth='1.5' strokeLinecap='round' strokeLinejoin='round'/%3E%3C/svg%3E") 0 15, auto`,
     };
     const imgEl = new Image();
     imgEl.src = image;

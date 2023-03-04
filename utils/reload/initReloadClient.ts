@@ -3,8 +3,8 @@ import {
   UPDATE_COMPLETE_MESSAGE,
   UPDATE_PENDING_MESSAGE,
   UPDATE_REQUEST_MESSAGE,
-} from "./constant";
-import MessageInterpreter from "./interpreter";
+} from './constant';
+import MessageInterpreter from './interpreter';
 
 let needToUpdate = false;
 
@@ -21,7 +21,7 @@ export default function initReloadClient({
     socket.send(MessageInterpreter.send({ type: UPDATE_COMPLETE_MESSAGE }));
   }
 
-  socket.addEventListener("message", (event) => {
+  socket.addEventListener('message', (event) => {
     const message = MessageInterpreter.receive(String(event.data));
 
     switch (message.type) {
@@ -42,8 +42,8 @@ export default function initReloadClient({
     }
   });
 
-  socket.addEventListener("close", () => {
-    console.log("Reload server disconnected.");
+  socket.addEventListener('close', () => {
+    console.log('Reload server disconnected.');
   });
 
   return socket;

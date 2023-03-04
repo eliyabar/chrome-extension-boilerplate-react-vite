@@ -44,8 +44,8 @@ export default defineConfig({
       input: {
         panel: resolve(pagesDir, 'panel', 'index.html'),
         content: resolve(pagesDir, 'content', 'index.ts'),
-        background: resolve(pagesDir, 'background', 'index.ts'),
         contentStyle: resolve(pagesDir, 'content', 'style.scss'),
+        background: resolve(pagesDir, 'background', 'index.ts'),
         popup: resolve(pagesDir, 'popup', 'index.html'),
         options: resolve(pagesDir, 'options', 'index.html'),
       },

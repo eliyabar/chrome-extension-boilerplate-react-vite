@@ -1,4 +1,4 @@
-import { clearTimeout } from "timers";
+import { clearTimeout } from 'timers';
 
 export function debounce<A extends unknown[]>(
   callback: (...args: A) => void,
