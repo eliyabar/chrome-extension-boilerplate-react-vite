@@ -12,10 +12,13 @@ const manifest: chrome.runtime.ManifestV3 = {
   background: { service_worker: 'src/pages/background/index.js' },
   action: {
     default_popup: 'src/pages/popup/index.html',
-    default_icon: 'icon-34.png',
+    default_icon: 'lens32.png',
   },
   icons: {
-    '128': 'icon-128.png',
+    '512': 'lens.png',
+    '256': 'lens256.png',
+    '128': 'lens128.png',
+    '64': 'lens64.png',
   },
   content_scripts: [
     {
@@ -28,12 +31,7 @@ const manifest: chrome.runtime.ManifestV3 = {
   host_permissions: ['<all_urls>'],
   web_accessible_resources: [
     {
-      resources: [
-        'assets/js/*.js',
-        'assets/css/*.css',
-        'icon-128.png',
-        'icon-34.png',
-      ],
+      resources: ['assets/js/*.js', 'assets/css/*.css', 'lens*.png'],
       matches: ['*://*/*'],
     },
   ],

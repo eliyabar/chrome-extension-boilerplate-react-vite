@@ -15,7 +15,7 @@ import {
 interface DrawingBoardProps {
   width: number;
   height: number;
-  onDrawingComplete: (base64img?: string) => void;
+  onDrawingComplete: (blob: Blob) => void;
   onCancelDrawing: () => void;
   image: string;
 }
@@ -336,7 +336,7 @@ export const DrawingBoard: React.FC<DrawingBoardProps> = ({
 
   return (
     <Center
-      zIndex="9999"
+      zIndex="999"
       position={'fixed'}
       transform="translate(-50%, -50%)"
       left="50%"
@@ -353,7 +353,13 @@ export const DrawingBoard: React.FC<DrawingBoardProps> = ({
       />
       <DrawingBoardTools
         onCancelDrawing={onCancelDrawing}
-        onDrawingComplete={() => onDrawingComplete(ctx.current?.toDataURL())}
+        onDrawingComplete={() => {
+          if (ctx.current) {
+            ctx.current.getElement().toBlob((blob) => {
+              onDrawingComplete(blob);
+            });
+          }
+        }}
         chooseColorCallback={(color) => setActiveColor(color)}
         activeColor={activeColor}
         toggleDrawingMode={() => setIsDrawing((v) => !v)}

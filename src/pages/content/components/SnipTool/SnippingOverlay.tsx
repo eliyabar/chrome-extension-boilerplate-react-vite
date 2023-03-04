@@ -16,7 +16,7 @@ export const SnippingOverlay = (props: {
       top="0px"
       left="0px"
       onClick={props.onClose}
-      zIndex="9998"
+      zIndex="998"
     />
   ) : null;
 };

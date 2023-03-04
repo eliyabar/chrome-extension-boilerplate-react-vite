@@ -1,18 +1,21 @@
 {
   "manifest_version": 3,
-  "name": "chrome-extension-boilerplate-react-vite",
+  "name": "chrome-snippin-tool-extension",
   "version": "0.0.1",
-  "description": "chrome extension boilerplate",
+  "description": "A chrome extension for screen capture and annotations",
   "options_page": "src/pages/options/index.html",
   "background": {
     "service_worker": "src/pages/background/index.js"
   },
   "action": {
     "default_popup": "src/pages/popup/index.html",
-    "default_icon": "icon-34.png"
+    "default_icon": "lens32.png"
   },
   "icons": {
-    "128": "icon-128.png"
+    "64": "lens64.png",
+    "128": "lens128.png",
+    "256": "lens256.png",
+    "512": "lens.png"
   },
   "content_scripts": [
     {
@@ -40,8 +43,7 @@
       "resources": [
         "assets/js/*.js",
         "assets/css/*.css",
-        "icon-128.png",
-        "icon-34.png"
+        "lens*.png"
       ],
       "matches": [
         "*://*/*"

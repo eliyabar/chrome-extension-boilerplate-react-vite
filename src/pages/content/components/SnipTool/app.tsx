@@ -41,8 +41,15 @@ export default function App() {
         <DrawingBoard
           width={imageDetails.dimensions.width}
           height={imageDetails.dimensions.height}
-          onDrawingComplete={(base64img?: string) => {}}
-          onCancelDrawing={() => {}}
+          onDrawingComplete={(blob: Blob) => {
+            const link = document.createElement('a');
+            link.download = 'snipping' + '.png';
+            link.href = URL.createObjectURL(blob);
+            link.click();
+          }}
+          onCancelDrawing={() => {
+            setIsOpen(false);
+          }}
           image={imageDetails.base64}
         />
       )}
